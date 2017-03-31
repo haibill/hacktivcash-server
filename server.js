@@ -1,10 +1,27 @@
-const http = require('http')
+const express = require('express')
 
-http.createServer((request, response) => {
-  response.writeHead(200, {
-    'Content-Type': 'text/html'
-  })
-  response.end('<h1>Hello, Bandung!</h1>')
-}).listen(5432, '127.0.0.1')
+const app = express()
 
-console.log('Server running at http://127.0.0.1:5432')
+app.use((request, response, next) => {
+  console.log('Satu')
+  next()
+})
+
+app.use((request, response, next) => {
+  console.log('Dua')
+  next()
+})
+
+const handleGetRoot = (request, response) => {
+  response.send('This is / route')
+}
+
+const handleGetEcho = (request, response) => {
+  response.send(`This is /echo route. Hello ${request.params.name}`)
+}
+app.get('/', handleGetRoot)
+app.get('/echo/:name', handleGetEcho)
+
+app.listen(5432, () => {
+  console.log('Magic happen at http://localhost:5432')
+})
