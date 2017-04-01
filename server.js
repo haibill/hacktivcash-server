@@ -1,32 +1,14 @@
+const path = require('path')
 const express = require('express')
 
 const app = express()
 
-app.use((request, response, next) => {
-  console.log('Satu')
-  next()
-})
+// view engine setup
+app.set('views', path.join(__dirname, 'views'))
+app.set('view engine', 'hbs')
 
-app.use((request, response, next) => {
-  console.log('Dua')
-  next()
-})
-
-const handleGetRoot = (request, response) => {
-  response.send('This is / route')
-}
-
-const handleGetEcho = (request, response) => {
-  response.send(`This is /echo route. Hello ${request.params.name}`)
-}
-
-app.get('/', handleGetRoot)
-app.get('/echo/:name', handleGetEcho)
-app.get('/hacktiv8', (req, res) => {
-  res.redirect('https://hacktiv8.com/')
-})
-app.get('/sending', (req, res) => {
-  res.sendFile('/Users/riza/Music/cool_song.mp3')
+app.get('/', (req, res) => {
+  res.render('index', {data: 'Hello, Bandung!'})
 })
 
 app.listen(5432, () => {
