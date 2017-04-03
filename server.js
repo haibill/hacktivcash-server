@@ -7,8 +7,11 @@ const app = express()
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'hbs')
 
+// Static files
+app.use(express.static('public'))
+
 app.get('/', (req, res) => {
-  res.render('index', {data: 'Hello, Bandung!'})
+  res.render('index', {storename: 'HACKTIVcash'})
 })
 
 app.listen(5432, () => {
