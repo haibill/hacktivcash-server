@@ -21,27 +21,27 @@
   },
   {
     "id": 5,
-    "image": "http://localhost:5432/img/imvr_lightsaber_flatware_set.jpg",
+    "image": "/img/imvr_lightsaber_flatware_set.jpg",
     "description": "We've had lightsaber chopsticks for a while now and also grilling implements, but maybe you're looking for a way to infuse your everyday meals with more Star Wars. We have the solution for you: our Star Wars Lightsaber Flatware Set."
   },
   {
     "id": 6,
-    "image": "http://localhost:5432/img/jjiu_art_of_rogue_one.jpg",
+    "image": "/img/jjiu_art_of_rogue_one.jpg",
     "description": "Star Wars movies are consistently eye candy, if nothing else. Criticize any of the movies all you like, but the one part you will have a hard time talking bad about are the visuals."
   },
   {
     "id": 7,
-    "image": "http://localhost:5432/img/jhpv_r2d2_charging_hub.gif",
+    "image": "/img/jhpv_r2d2_charging_hub.gif",
     "description": "There are lots of astromechs out there, but no design more popular than the venerable R2 unit. Sure, BBs are great, but R2 units have a special place in our hearts. And although not everyone can speak in bleeps and bloops, you never have much trouble getting the gist of what they're trying to say."
   },
   {
     "id": 8,
-    "image": "http://localhost:5432/img/hssk_death_star_bt_speaker.gif",
+    "image": "/img/hssk_death_star_bt_speaker.gif",
     "description": "We're fans of action figures around here, so we have a lot of collectibles on display at our houses (and on our desks) that really have no purpose. (Except, obviously, to declare our awesomeness to all onlookers.) "
   },
   {
     "id": 9,
-    "image": "http://localhost:5432/img/iono_sw_lightsaber_selfie_stick.jpg",
+    "image": "/img/iono_sw_lightsaber_selfie_stick.jpg",
     "description": "You know, when you think about it lightsabers and selfie sticks have a lot in common. Both are compact to carry around but expand when you need them. Both are first-world tools #FirstGalaxyProblems. Both can be used for evil or for good."
   }
 ]

@@ -1,5 +1,6 @@
 const path = require('path')
 const express = require('express')
+const items = require('./data/items.json')
 
 const app = express()
 
@@ -11,7 +12,7 @@ app.set('view engine', 'hbs')
 app.use(express.static('public'))
 
 app.get('/', (req, res) => {
-  res.render('index', {storename: 'HACKTIVcash'})
+  res.render('index', {items: items})
 })
 
 app.listen(5432, () => {
