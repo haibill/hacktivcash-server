@@ -19,7 +19,6 @@ app.get('/detail/:id', (req, res) => {
   const item = items.find(i => {
     return i.id === parseInt(req.params.id)
   })
-  console.log(item)
   res.render('detail', {item: item})
 })
 
