@@ -16,7 +16,11 @@ app.get('/', (req, res) => {
 })
 
 app.get('/detail/:id', (req, res) => {
-  res.render('detail', {item: items[req.params.id]})
+  const item = items.find(i => {
+    return i.id === parseInt(req.params.id)
+  })
+  console.log(item)
+  res.render('detail', {item: item})
 })
 
 app.listen(5432, () => {
