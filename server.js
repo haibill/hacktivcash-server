@@ -28,16 +28,31 @@ app.listen(5432, () => {
   console.log('Magic happen at http://localhost:5432')
 })
 
-const CREATE_TABLE = `CREATE TABLE users (id INTEGER PRIMARY KEY AUTOINCREMENT, 
-username VARCHAR(100),
-password TEXT);`
-const ALTER_TABLE = `ALTER TABLE users ADD dateCreated DATE;`
-const DROP_TABLE = `DROP TABLE users;`
+const CREATE_TABLE = `CREATE TABLE IF NOT EXISTS items(id INTEGER PRIMARY KEY AUTOINCREMENT, 
+image VARCHAR(100),
+description TEXT);`
+const DROP_TABLE = `DROP TABLE IF EXISTS items;`
+const INSERT_ITEM = `INSERT INTO items (id, image, description) VALUES (1, "/img/1-jlol_sp_ed_bb-8_sphero_force_band.jpg", "abc");`
+const SELECT_ITEM = `SELECT * FROM items;`
+const UPDATE_ITEM = `UPDATE items SET description='HACKTIVCAST new items'`
+const DELETE_ITEM = `DELETE FROM items WHERE id=1;`
 
 db.serialize(() => {
-  db.run(CREATE_TABLE)
-  db.run(ALTER_TABLE)
   db.run(DROP_TABLE)
+  db.run(CREATE_TABLE)
+  db.run(INSERT_ITEM)
+
+  db.each(SELECT_ITEM, (err, row) => {
+    console.log(row.id, ': ', row.description)
+  })
+  db.run(UPDATE_ITEM)
+  db.each(SELECT_ITEM, (err, row) => {
+    console.log(row.id, ': ', row.description)
+  })
+  db.run(DELETE_ITEM)
+  db.each(SELECT_ITEM, (err, row) => {
+    console.log('After DELETE: ', row.id, ': ', row.description)
+  })
 })
 
 db.close()
