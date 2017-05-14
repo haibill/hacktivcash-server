@@ -28,6 +28,8 @@ app.listen(5432, () => {
   console.log('Magic happen at http://localhost:5432')
 })
 
+// MODELS
+
 const CREATE_TABLE = `CREATE TABLE IF NOT EXISTS items(id INTEGER PRIMARY KEY AUTOINCREMENT, 
 image VARCHAR(100),
 description TEXT);`
