@@ -1,14 +1,14 @@
 {
   "development": {
-    "storage": "hacktivcash_dev.db",
+    "storage": "./data/hacktivcash_dev.db",
     "dialect": "sqlite"
   },
   "test": {
-    "storage": "hacktivcash_test.db",
+    "storage": "./data/hacktivcash_test.db",
     "dialect": "sqlite"
   },
   "production": {
-    "storage": "hacktivcash.db",
+    "storage": "./data/hacktivcash.db",
     "dialect": "sqlite"
   }
 }
