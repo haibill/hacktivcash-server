@@ -1,7 +1,10 @@
-const items = require('../data/items.json')
+const Item = require('../models').Item
 
 const index = (req, res) => {
-  res.render('index', { items: items })
+  Item.findAll()
+    .then(items => {
+      res.render('index', { items: items })
+    })
 }
 
 const details = (req, res) => {
