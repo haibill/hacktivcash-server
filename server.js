@@ -1,5 +1,6 @@
 const path = require('path')
 const express = require('express')
+const bodyParser = require('body-parser')
 
 const app = express()
 
@@ -13,8 +14,15 @@ app.set('view engine', 'hbs')
 // Static files
 app.use(express.static('public'))
 
+// Body Parser
+app.use(bodyParser.urlencoded({
+  extended: true
+})) // for parsing application/x-www-form-urlencoded
+
 // Routes
 app.get('/', controllers.index)
+app.get('/add', controllers.add)
+app.post('/save', controllers.save)
 app.get('/detail/:id', controllers.details)
 
 sequelize.sync()
