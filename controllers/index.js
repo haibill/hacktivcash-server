@@ -8,10 +8,11 @@ const index = (req, res) => {
 }
 
 const details = (req, res) => {
-  const item = items.find(i => {
-    return i.id === parseInt(req.params.id)
-  })
-  res.render('detail', { item: item })
+  Item.findOne({where: { id: parseInt(req.params.id) }})
+    .then(item => {
+      res.render('detail', { item: item })
+    })
+    .catch(err => console.error(err))
 }
 
 const add = (req, res) => {
@@ -19,8 +20,11 @@ const add = (req, res) => {
 }
 
 const save = (req, res) => {
-  console.log(req.body)
-  res.render('add')
+  Item.create(req.body)
+    .then((item) => {
+      res.redirect(`/detail/${item.id}`)
+    })
+    .catch(err => console.error(err))
 }
 
 module.exports = {
