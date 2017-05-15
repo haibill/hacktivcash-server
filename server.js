@@ -1,6 +1,7 @@
 const path = require('path')
 const express = require('express')
 const bodyParser = require('body-parser')
+const methodOverride = require('method-override')
 
 const app = express()
 
@@ -18,6 +19,7 @@ app.use(express.static('public'))
 app.use(bodyParser.urlencoded({
   extended: true
 })) // for parsing application/x-www-form-urlencoded
+app.use(methodOverride('_method'))
 
 // Routes
 app.get('/', controllers.index)
@@ -25,7 +27,7 @@ app.get('/add', controllers.add)
 app.post('/save', controllers.save)
 app.get('/detail/:id', controllers.details)
 app.get('/edit/:id', controllers.edit)
-app.post('/update', controllers.update)
+app.put('/update', controllers.update)
 app.get('/remove/:id', controllers.remove)
 
 sequelize.sync()

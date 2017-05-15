@@ -1,7 +1,7 @@
 {{!< layout }}
 <div class="container">
   <h1 class="jumbotron-heading">Update Item</h1>
-  <form action="/update" method="post">
+  <form action="/update?_method=PUT" method="post">
     <div class="form-group">
       <label for="">Image</label>
       <input type="hidden" name="id" value="{{item.id}}">
