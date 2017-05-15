@@ -14,7 +14,18 @@ const details = (req, res) => {
   res.render('detail', { item: item })
 }
 
+const add = (req, res) => {
+  res.render('add')
+}
+
+const save = (req, res) => {
+  console.log(req.body)
+  res.render('add')
+}
+
 module.exports = {
   index: index,
-  details: details
+  details: details,
+  add: add,
+  save: save
 }
