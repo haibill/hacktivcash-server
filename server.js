@@ -26,6 +26,7 @@ app.post('/save', controllers.save)
 app.get('/detail/:id', controllers.details)
 app.get('/edit/:id', controllers.edit)
 app.post('/update', controllers.update)
+app.get('/remove/:id', controllers.remove)
 
 sequelize.sync()
   .then(() => {

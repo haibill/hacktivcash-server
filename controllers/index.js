@@ -52,11 +52,23 @@ const update = (req, res) => {
     .catch(err => console.error(err))
 }
 
+const remove = (req, res) => {
+  Item.findOne({where: {
+    id: parseInt(req.params.id)
+  }})
+    .then(item => {
+      item.destroy()
+      res.redirect('/')
+    })
+    .catch(err => console.error(err))
+}
+
 module.exports = {
   index: index,
   details: details,
   add: add,
   save: save,
   edit: edit,
-  update: update
+  update: update,
+  remove: remove
 }
