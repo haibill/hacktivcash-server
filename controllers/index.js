@@ -27,9 +27,36 @@ const save = (req, res) => {
     .catch(err => console.error(err))
 }
 
+const edit = (req, res) => {
+  Item.findOne({ where: { id: parseInt(req.params.id) } })
+    .then((item) => {
+      res.render('edit', { item: item })
+    })
+    .catch(err => console.error(err))
+}
+
+const update = (req, res) => {
+  // Update data here
+  console.log(req.body)
+  Item.update({
+    image: req.body.image,
+    description: req.body.description
+  }, {
+    where: {
+      id: req.body.id
+    }
+  })
+    .then(() => {
+      res.redirect('/')
+    })
+    .catch(err => console.error(err))
+}
+
 module.exports = {
   index: index,
   details: details,
   add: add,
-  save: save
+  save: save,
+  edit: edit,
+  update: update
 }
